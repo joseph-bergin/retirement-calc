@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Retirement Runway</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Schibsted+Grotesk:wght@500;700;800&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <div>
+        <h1>Retirement Runway</h1>
+        <p class="tagline">When can you stop working, and what would it take to stop sooner?</p>
+      </div>
+    </div>
+    <div class="masthead-actions">
+      <span class="status" id="status" role="status" aria-live="polite">Ready</span>
+      <button type="button" class="ghost" id="btn-share">Copy inputs</button>
+      <button type="button" class="ghost" id="btn-load">Paste inputs</button>
+      <button type="button" class="ghost" id="btn-reset">Reset to example</button>
+    </div>
+  </div>
+</header>
+
+<div class="example-banner" id="example-banner">
+  <div class="wrap">These are <strong>example figures</strong> for a 35-year-old in Texas. Replace them with your own on the left; everything recalculates as you type and is kept in this browser only.</div>
+</div>
+
+<main class="layout wrap">
+  <aside class="inputs" id="inputs" aria-label="Your inputs"></aside>
+
+  <section class="results" aria-label="Results">
+    <div class="hero" id="hero"></div>
+
+    <nav class="tabs" role="tablist" aria-label="Result views">
+      <button role="tab" id="tab-overview" aria-controls="panel-overview" aria-selected="true">Overview</button>
+      <button role="tab" id="tab-target" aria-controls="panel-target" aria-selected="false">Hit your target</button>
+      <button role="tab" id="tab-whatif" aria-controls="panel-whatif" aria-selected="false">What-ifs</button>
+      <button role="tab" id="tab-mc" aria-controls="panel-mc" aria-selected="false">Monte Carlo</button>
+      <button role="tab" id="tab-cash" aria-controls="panel-cash" aria-selected="false">Year by year</button>
+      <button role="tab" id="tab-method" aria-controls="panel-method" aria-selected="false">How it works</button>
+    </nav>
+
+    <div class="panel" role="tabpanel" id="panel-overview" aria-labelledby="tab-overview"></div>
+    <div class="panel" role="tabpanel" id="panel-target" aria-labelledby="tab-target" hidden></div>
+    <div class="panel" role="tabpanel" id="panel-whatif" aria-labelledby="tab-whatif" hidden></div>
+    <div class="panel" role="tabpanel" id="panel-mc" aria-labelledby="tab-mc" hidden></div>
+    <div class="panel" role="tabpanel" id="panel-cash" aria-labelledby="tab-cash" hidden></div>
+    <div class="panel prose" role="tabpanel" id="panel-method" aria-labelledby="tab-method" hidden></div>
+  </section>
+</main>
+
+<div class="tooltip" id="tooltip" role="tooltip" hidden></div>
+
+<dialog id="io-dialog">
+  <form method="dialog" class="io-form">
+    <h2 id="io-title">Inputs</h2>
+    <p id="io-help"></p>
+    <textarea id="io-text" rows="10" spellcheck="false"></textarea>
+    <p class="io-error" id="io-error" hidden></p>
+    <div class="io-actions">
+      <button type="button" class="ghost" id="io-cancel">Close</button>
+      <button type="button" class="primary" id="io-apply">Apply</button>
+    </div>
+  </form>
+</dialog>
+
+<script src="engine.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
